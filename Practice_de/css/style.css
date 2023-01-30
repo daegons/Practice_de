@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+/* 레이아웃 */
+#header {
+    background: url(../img/header_bg.jpg)
+    repeat-x center top; /*화면 줄이고 커지게 할 때 가운데 유지   */
+}
+#nav { background-color: #f6fdff; }
+/* 컨테이너 (넓이 주고,가운데 이동,배경색) */
+#title { background-color: #eaf7fd; }
+#footer { border-top: 1px solid #dbdbdb; }
+.container {
+    width: 1200px; 
+    margin: 0 auto; 
+    /* background: rgb(20, 69, 75, 0.7); */
+    position: relative;
+}
+/* 헤더 */
+.header_in {
+    height: 327px; 
+    /* background: rgb(112, 66, 66, 0.8); */
+}
+
+.header_menu {text-align: right;}
+
+.header_menu a {
+    color: #fff;
+    padding: 8px 0 6px 10px; /*위쪽8px padding 안먹혀서 inline-block 해주면 먹힘 */
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-family: 'Abel', sans-serif;
+}
+.header_menu a:hover {color: #ccc;}
+
+.header_title {
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 55px;
+    font-family: 'Abel', sans-serif;
+}
+
+.header_title h1 {
+    font-size: 30px; color: #fff;
+    background: #51b0bc;
+    display: inline-block; /*블록 구조이기 때문에 인라인으로 바꿔야 배경색 글자에 마춰짐*/
+                            /*패딩이나 마진값도 먹힘*/
+    padding: 5px 30px;
+    letter-spacing: 2px;
+    font-weight: 900;
+    transition: box-shadow 0.5s ease-in-out;
+    border-radius: 4px;
+}
+
+.header_title h1:hover {
+    box-shadow: inset -250px 0 0 0 #257fac, inset 250px 0 0 0 #257fac;
+}
+
+.header_title a {
+    font-size: 16px; color: #fff;
+    background: #4a9abf;
+    display: inline-block;
+    padding:10px 20px;
+    margin-top: -7px;
+    transition: box-shadow 0.25s ease-in-out;
+    border-radius: 5px;
+}
+
+.header_title a:hover {
+    box-shadow: 0 0 0 5px rgba(75, 154, 191, 0.9) inset,
+                0 0 0 100px rgba(0, 0, 0, 0.1) inset;
+}
+
+.header_icon {
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 45px;
+}
+
+.header_icon li {
+    display: inline; /*블록 구조 inline적용*/
+    margin: 0 2px;
+}
+
+.header_icon li a {
+    position: relative; /*a태그에 기준점 잡아주면 a쪽으로 이동됨*/
+    background-color: #3192bf;
+    border-radius: 50%;
+    width: 60px; height: 60px; color: white;
+    /*width,height값이 안먹힌 이유 inline구조라서*/
+    display: inline-block;
+    font-size: 35px;
+    line-height: 60px;
+    transition: all 0.5s;
+}
+
+.header_icon li a span {
+    position: absolute;
+    left: 50%; top: -40px;
+    transform: translateX(-50%);
+    font-size: 12px;
+    line-height: 1.6;
+    background: #3192bf;
+    padding: 3px 9px;
+    border-radius: 6px 0;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.header_icon li a span::before { /*화살표 만드는 공식*/
+    content: "";
+    position: absolute;
+    margin-left: -5px;
+    left: 50%; bottom: -5px;
+    border-top: 5px solid #3192bf;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+.header_icon li a:hover span {
+    opacity: 1;
+    top: -33px;
+}
+
+.header_icon li a:hover {
+    box-shadow: 0 0 0 3px rgba(75, 154, 191, 0.9) inset,
+                0 0 0 100px rgba(0, 0, 0, 0.1) inset;
+}
+
+/* -------------title------------- */
+
+.title {
+    text-align: center;
+    position: relative;
+}
+.title h2 {font-family: 'Nanum Brush Script', cursive; font-size: 39px; color: #0093bd; padding: 5px 0;}
+.title .btn { 
+    position: absolute; 
+    right: 0; top: 5px;
+    width: 60px; height: 60px;
+    line-height: 60px;
+    background: #3192bf; color: white;
+    font-size: 35px;
+    border-radius: 50%;
+    transition: all .3s ease;
+}
+
+.title .btn:hover {
+    box-shadow: 0 0 0 3px rgba(71, 154, 191, 0.9) inset,
+                0 0 0 100px rgba(0, 0, 0, 0.1) inset;
+}
+
+/*-----------------컨텐츠 영역----------------------*/
+
+/* -------------mediaquery------------- */
+
+/*화면 너비 0 ~ 1220px(기본 모니터)*/
+@media (max-width: 1220px) {
+    .container {width: 100%;} /*가로 스크롤 방지*/
+    .container_row {padding: 0 15px;} /*1220px아래가면 헤더a태그 글자 좌우15px로 띄워짐*/
+    .title .btn { right: 10px; }
+}
+/*화면 너비 0 ~ 1024px(모니터)*/
+@media (max-width: 1024px) {}
+
+/*화면 너비 0 ~ 960px(태블릿)*/
+@media (max-width: 960px) {}
+
+/*화면 너비 0 ~ 768px(테블릿)*/
+@media (max-width: 768px) {}
+/*화면 너비 0 ~ 600px(모바일)*/
+@media (max-width: 600px) {
+    #header .header_title { display: none; }
+    #header .header_icon { display: none; }
+    .header_in { height: auto; } /*헤더의 하이트 값을 깰려면 적용*/
+    .title .btn { display: none; }
+}
+/*화면 너비 0 ~ 480px(옛날모바일)*/
+@media (max-width: 480px) {}
+/*화면 너비 0 ~ 320px(옛날모바일)*/
+@media (max-width: 320px) {}
+
