@@ -1,3 +1,3 @@
 
-https://daegons.github.io/responsive_web_poroject/
+https://daegons.github.io/Practice_de/
 반응형 웹 
